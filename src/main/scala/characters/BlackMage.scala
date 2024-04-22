@@ -19,7 +19,7 @@ package characters
  * @version 1.0.0
  */
 class BlackMage extends MagicalCharacter {
-  val name= "MagoNegro"
+  val name= "BlackMage"
   val livePoints = 80
   val defending= 40
   val weight = 50

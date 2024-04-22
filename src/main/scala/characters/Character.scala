@@ -1,9 +1,9 @@
 package characters
 
-trait Character {
+abstract class Character {
   val name: String
-  val livePoints: Int
+  var livePoints: Int
   val defending: Int
   val weight: Int
-  var arma: Option[weapons.Weapon] = None
+  var weapon: Option[weapons.Weapon] = None
 }
