@@ -10,27 +10,27 @@ class EnemyTest extends munit.FunSuite {
   }
 
   test("El nombre del enemigo puede ser modificado") {
-    enemigo.Nombre = "Duende"
-    assertEquals("Duende", enemigo.Nombre)
+    enemigo.name = "Duende"
+    assertEquals("Duende", enemigo.name)
   }
 
   test("Los puntos de vida del enemigo pueden ser modificados") {
-    enemigo.PuntoVida = 150
-    assertEquals(150, enemigo.PuntoVida)
+    enemigo.livePoints= 150
+    assertEquals(150, enemigo.livePoints)
   }
 
   test("El ataque del enemigo puede ser modificado") {
-    enemigo.Ataque = 25
-    assertEquals(25, enemigo.Ataque)
+    enemigo.attack = 25
+    assertEquals(25, enemigo.attack)
   }
 
   test("La defensa del enemigo puede ser modificada") {
-    enemigo.Defensa = 15
-    assertEquals(15, enemigo.Defensa)
+    enemigo.defensing= 15
+    assertEquals(15, enemigo.defensing)
   }
 
   test("El peso del enemigo puede ser modificado") {
-    enemigo.Peso= 60
-    assertEquals(60, enemigo.Peso)
+    enemigo.weight= 60
+    assertEquals(60, enemigo.weight)
   }
 }

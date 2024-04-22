@@ -8,7 +8,7 @@ class AxeTest extends  munit.FunSuite {
     assertEquals("Axe", axe.name)
     assertEquals(20, axe.attackPoints)
     assertEquals(10, axe.weight)
-    assertEquals(List("Paladin", "Guerrero"), axe.owner)
+    assertEquals(List("Paladin", "Warrior"), axe.owner)
   }
 
 }

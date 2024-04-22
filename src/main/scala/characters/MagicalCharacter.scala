@@ -1,6 +1,6 @@
 package characters
 
-trait MagicalCharacter {
+abstract class MagicalCharacter {
   val name: String
   val livePoints: Int
   val defending: Int
