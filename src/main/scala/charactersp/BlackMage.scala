@@ -1,4 +1,4 @@
-package characters
+package charactersp
 /** A class representing a Black Mage
  *
  * The Black Mage is defined by a name and extends Character, live points, defending, weight, mana points.

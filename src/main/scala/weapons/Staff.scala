@@ -19,6 +19,7 @@ package weapons
  */
 class Staff extends MagicalWeapon {
   val name = "Staff"
+  val attackPoints=10
   val magicAttackPoints= 30
   val weight =15
   val owner= List("BlackMage","WhiteMage")

@@ -1,4 +1,4 @@
-package characters
+package charactersp
 /** A class representing a Paladin
  *
  * The paladin is defined by a name and extends Character, live points, defending, weight.

@@ -1,6 +1,6 @@
 package characterstest
 
-import characters.Warrior
+import charactersp.Warrior
 
 class WarriorTest extends munit.FunSuite {
   test("Warrior is a Character") {

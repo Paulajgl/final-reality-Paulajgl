@@ -1,6 +1,6 @@
 package characterstest
 
-import characters.BlackMage
+import charactersp.BlackMage
 
 class BlackMageTest extends munit.FunSuite {
   test("BlackMage is a  MagicalCharacter") {

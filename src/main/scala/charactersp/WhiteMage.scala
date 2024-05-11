@@ -1,4 +1,4 @@
-package characters
+package charactersp
 /** A class representing a WhiteMage
  *
  * The WhiteMage is defined by a name and extends Character, live points, defending, weight.

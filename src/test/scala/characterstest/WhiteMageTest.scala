@@ -1,6 +1,6 @@
 package characterstest
 
-import characters.WhiteMage
+import charactersp.WhiteMage
 
 
 class WhiteMageTest extends munit.FunSuite {

@@ -21,6 +21,6 @@ class Axe extends Weapon {
   val name = "Axe"
   val attackPoints= 20
   val weight = 10
-  val owner= List("Paladin", "Guerrero")
+  val owner= List("Paladin", "Warrior")
 
 }

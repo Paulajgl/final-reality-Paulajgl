@@ -1,5 +1,5 @@
 package characterstest
-import characters.Paladin
+import charactersp.Paladin
 class PaladinTest extends munit.FunSuite {
     test("Paladin is a Character") {
       val paladin = new Paladin()

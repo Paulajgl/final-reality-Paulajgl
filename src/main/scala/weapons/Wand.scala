@@ -20,6 +20,7 @@ package weapons
 
 class Wand extends MagicalWeapon {
   val name = "Wand"
+  val attackPoints= 15
   val magicAttackPoints= 40
   val weight = 20
   val owner= List("Ninja", "BlackMage","WhiteMage")

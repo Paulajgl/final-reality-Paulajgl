@@ -1,6 +1,6 @@
 package characterstest
 
-import characters.Ninja
+import charactersp.Ninja
 
 class NinjaTest extends munit.FunSuite {
   test("Ninja is a  Character") {

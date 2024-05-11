@@ -1,4 +1,4 @@
-package characters
+package charactersp
 /** A class representing a Ninja
  *
  * The ninja is defined by a name and extends Character, live points, defending, weight.
@@ -8,11 +8,6 @@ package characters
  * @param defending The defending of the ninja.
  * @param weight The weight of a character will determine the speed  of this to be able to access your turn
  *
- *  @constructor
- * @example
- * {{{
- *
- * }}}
 
  * @author
  * @since 1.0.0
