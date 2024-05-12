@@ -1,6 +1,6 @@
 package weapontest
 
-import weapons.Bow
+import weaponry.Bow
 
 class WandTest extends munit.FunSuite {
   test("Bow ia a Weapon"){

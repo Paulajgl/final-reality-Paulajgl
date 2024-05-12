@@ -1,6 +1,6 @@
 package weapontest
 
-import weapons.{Staff, Weapon}
+import weaponry.{Staff, Weapon}
 
 class StaffTest extends munit.FunSuite {
   test ("Staff is a MagicWeapon"){

@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 
 trait MagicalWeapon extends Weapon {
   val name: String

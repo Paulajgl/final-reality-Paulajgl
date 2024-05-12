@@ -12,7 +12,7 @@ class Attack {
   // Maps to store attack damage, defense points, and weapons for characters
   private val _attackDamage: mutable.Map[charactersp.Character, Int] = mutable.Map()
   private val _defensePoints: mutable.Map[charactersp.Character, Int] = mutable.Map()
-  private val _weapons: mutable.Map[charactersp.Character, weapons.Weapon] = mutable.Map()
+  private val _weapons: mutable.Map[charactersp.Character, weaponry.Weapon] = mutable.Map()
 
   /**
    * Getter for defense points map.
@@ -33,7 +33,7 @@ class Attack {
    *
    * @return Mutable map of characters to weapons.
    */
-  def getWeapons: mutable.Map[charactersp.Character, weapons.Weapon] = _weapons
+  def getWeapons: mutable.Map[charactersp.Character, weaponry.Weapon] = _weapons
 
   /**
    * Method to calculate attack damage and apply it to a defender character.
@@ -67,7 +67,7 @@ class Attack {
    * @param character The character to equip the weapon to.
    * @param weapon The weapon to be equipped.
    */
-  def equipWeapon(character: charactersp.Character, weapon: weapons.Weapon): Unit = {
+  def equipWeapon(character: charactersp.Character, weapon: weaponry.Weapon): Unit = {
     _weapons(character) = weapon
   }
 }

@@ -1,6 +1,6 @@
 package weapontest
 
-import weapons.Axe
+import weaponry.Axe
 
 class AxeTest extends  munit.FunSuite {
   test ("Axe is a Weapon"){

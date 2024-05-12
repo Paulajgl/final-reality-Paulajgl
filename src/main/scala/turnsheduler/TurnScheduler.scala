@@ -141,4 +141,21 @@ class TurnScheduler {
     }
     charactersWithFullActionBar.toList.sortBy(character => -characterListInBattle(character).value)
   }
+
+  /**
+   * Obtains the character whose turn is next, i.e., the one with the fullest and highest action bar.
+   *
+   * @param characterListInBattle The character list in battle to check.
+   * @return The character whose turn is next, or None if no character has a full action bar.
+   */
+  def getCharacterNextTurn(characterListInBattle: mutable.Map[charactersp.Character, ActionBar]) : Option[charactersp.Character]= {
+
+    val charactersWithFullActionBar = getCharactersWithFullActionBar(characterListInBattle)
+    charactersWithFullActionBar.headOption
+  }
+
 }
+
+
+
+

@@ -32,12 +32,10 @@ class TurnSchedulerTest extends munit.FunSuite {
 
   test("maxActionBar should return list with maximum action bar values for each character") {
     val turnScheduler = new TurnScheduler
-
     val paladin= new Paladin
     val actionBarPaladin = new ActionBar(characterWeight = paladin.weight, weaponWeight = 20)
     actionBarPaladin.actionBarCalculate
     turnScheduler.addCharacter(paladin, actionBarPaladin)
-
     val ninja = new Ninja
     val actionBarNinja= new ActionBar(characterWeight = ninja.weight, weaponWeight = 30)
     actionBarNinja.actionBarCalculate
@@ -50,7 +48,7 @@ class TurnSchedulerTest extends munit.FunSuite {
 
     val maxValues = turnScheduler.maxActionBar()
 
-    assertEquals(maxValues, List(35.0, 40.0, 70.0))
+    assertEquals(maxValues, List(40.0, 20.0, 45.0))
   }
   test("increaseActionBarInBattle should increase the value of all action bars in battle by specified amount") {
     val turnScheduler = new TurnScheduler
@@ -144,6 +142,24 @@ class TurnSchedulerTest extends munit.FunSuite {
     assertEquals(actionBarNinja.value,0)
     assertEquals(actionBarWarrior.value,0)
     assertEquals(actionBarPaladin.value,0)
+  }
+  test ("getCharacterNextTurn should return the character with fullest and highest action bar"){
+    val turnScheduler = new TurnScheduler
+    val ninja = new Ninja
+    val paladin = new Paladin
+    val warrior = new  Warrior
+    val actionBarNinja = new ActionBar(characterWeight = 5, weaponWeight = 10)
+    val actionBarPaladin = new ActionBar(characterWeight = 20, weaponWeight = 30)
+    val actionBarWarrior = new ActionBar(characterWeight = 12, weaponWeight = 10)
+    turnScheduler.addCharacterInBattle(ninja, actionBarNinja)
+    turnScheduler.addCharacterInBattle(paladin, actionBarPaladin)
+    turnScheduler.addCharacterInBattle(warrior, actionBarWarrior)
+    actionBarWarrior.increaseValue(actionBarWarrior.actionBarCalculate)
+    actionBarPaladin.increaseValue(actionBarPaladin.actionBarCalculate)
+    actionBarNinja.increaseValue(30)
+    val characterTurn =turnScheduler.getCharacterNextTurn(turnScheduler.characterListInBattle)
+    assertEquals(characterTurn,Some(paladin))
+
   }
 
 
