@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 /** A class representing a Wand
  *
  * The Wand is defined by a name, magicAttackPoints, weight and owner.

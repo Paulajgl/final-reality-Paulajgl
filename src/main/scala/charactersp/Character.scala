@@ -1,7 +1,7 @@
 package charactersp
 
 import party.Party
-import weapons.Weapon
+import weaponry.Weapon
 
 /**
  * A trait representing a character in a game or simulation.
@@ -16,7 +16,7 @@ trait  Character {
   val livePoints: Int
   val defending: Int
   val weight: Int
-  var weapon: Option[weapons.Weapon] = None
+  val weapon: Option[weaponry.Weapon] = None
 
 
 }

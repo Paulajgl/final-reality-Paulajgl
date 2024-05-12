@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 /** A class representing a Axe
  *
  * The Axe is defined by a name, magicAttackPoints, weight and owner.

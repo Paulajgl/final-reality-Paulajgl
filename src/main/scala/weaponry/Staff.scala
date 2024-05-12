@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 /** A class representing a Staff
  *
  * The Staff is defined by a name, magicAttackPoints, weight and owner.

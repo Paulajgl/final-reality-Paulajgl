@@ -19,5 +19,5 @@ package enemy
  * @version 1.0.0
  */
 
-class Enemy(var name: String, var livePoints: Int,
-            var defensing: Int, var attack: Int, var weight: Int)
+class Enemy(val name: String, val livePoints: Int,
+            val defensing: Int, val attack: Int, val weight: Int)

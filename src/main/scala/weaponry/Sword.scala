@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 /** A class representing a Sword
  *
  * The Sword is defined by a name, AttackPoints, weight and owner.

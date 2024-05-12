@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 /** A class representing a Bow
  *
  * The Bow is defined by a name, magicAttackPoints, weight and owner.

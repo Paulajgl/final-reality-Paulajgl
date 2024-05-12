@@ -1,4 +1,4 @@
-package weapons
+package weaponry
 
  trait Weapon {
    val name: String
@@ -6,7 +6,5 @@ package weapons
    val weight: Int
    val owner: List[String]
 
-   def OwnerWeapon(CharacterType: String): Boolean = {
-     owner.contains(CharacterType)
-   }
+
  }

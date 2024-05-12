@@ -3,7 +3,7 @@ package combatsistemtest
 import party.Party
 import charactersp.{Character, Ninja, Paladin, Warrior}
 import combatsystem.Attack
-import weapons.{Axe, Bow}
+import weaponry.{Axe, Bow}
 
 class AttackTest extends munit.FunSuite  {
   test("Attack should deal damage to defender if attacker has weapon and is in party") {
