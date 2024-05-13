@@ -3,11 +3,11 @@ package weapontest
 import weaponry.Bow
 
 class WandTest extends munit.FunSuite {
-  test("Bow ia a Weapon"){
-    val bow = new Bow()
-    assertEquals("Bow",bow.name)
-    assertEquals(40,bow.attackPoints)
-    assertEquals(10, bow.weight)
+  test("Wand ia a Weapon"){
+    val wand = new Wand()
+    assertEquals("Wand",wand.name)
+    assertEquals(40,wand.attackPoints)
+    assertEquals(10, wand.weight)
     assertEquals(List("Warrior", "Ninja", "WhiteMage"), bow.owner)
   }
 
