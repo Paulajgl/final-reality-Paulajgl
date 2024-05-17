@@ -10,9 +10,5 @@ package charactersp
  * @param manaPoints  The current number of mana points of the character, used for casting spells or performing magical actions.
  */
 trait  MagicalCharacter extends Character {
-  val name: String
-  val livePoints: Int
-  val defending: Int
-  val weight: Int
   val manaPoints: Int
 }

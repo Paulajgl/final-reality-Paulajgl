@@ -21,5 +21,5 @@ class Sword extends Weapon {
   val name = "Sword"
   val attackPoints = 30
   val weight= 10
-  val owner= List("Paladin", "Warrior","Ninja", "BlackMage")
+  override protected val allowedOwners: List[String]= List("Paladin", "Warrior","Ninja", "BlackMage")
 }

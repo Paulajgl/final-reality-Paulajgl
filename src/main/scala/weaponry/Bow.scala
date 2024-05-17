@@ -21,6 +21,6 @@ class Bow extends Weapon {
   val name = "Bow"
   val attackPoints = 40
   val weight = 10
-  val owner= List("Warrior","Ninja", "WhiteMage")
+  override protected val allowedOwners: List[String]= List("Warrior","Ninja", "WhiteMage")
 
 }

@@ -22,6 +22,6 @@ class Staff extends MagicalWeapon {
   val attackPoints=10
   val magicAttackPoints= 30
   val weight =15
-  val owner= List("BlackMage","WhiteMage")
+  override protected val allowedOwners: List[String]= List("BlackMage","WhiteMage")
 
 }
