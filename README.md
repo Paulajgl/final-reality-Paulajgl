@@ -23,3 +23,9 @@ seamless integration of magical and non-magical characters within the game world
 
 For weaponry, it was also considered similar to the character package, defining a 'weapon' trait and another one that
 extends from it called 'magicalWeapon', with each class already defining the name and data.
+
+For Tarea 2, modifications were made based on the submission from Tarea 1. The 'attack' is no longer a class but has
+been added as a method to characters and enemies, reflecting what each can perform. Several variables such as livePoints 
+and manaPoints were created to allow for updates when attacking or casting a spell (an immutable variable was also maintained
+to store the maximum values for the respective characters). All spells were given both a cost and a percentage, 
+and for those characters that do not use percentage-based spells, the percentage was set to zero.
