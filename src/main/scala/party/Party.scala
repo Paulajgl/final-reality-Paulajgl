@@ -1,6 +1,7 @@
 package party
 
 import charactersp.MagicalCharacter
+import exceptions.IllegalAmountException
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -20,7 +21,11 @@ class Party(val name: String) {
    * @param member The character to add to the party.
    */
   def addNewMember(member: charactersp.Character): Unit = {
-    players.addOne(member)
+    if (players.size >= 3) {
+      throw new IllegalAmountException("Cannot add more than 3 members to the party.")
+    } else {
+      players.addOne(member)
+    }
   }
 
   /**

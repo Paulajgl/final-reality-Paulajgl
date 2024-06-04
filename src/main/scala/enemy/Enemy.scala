@@ -1,4 +1,7 @@
 package enemy
+
+import charactersp.GameUnit
+
 /** A class representing a Axe
  *
  * The Enemy is defined by a name, livePoints, defensing, attack and weight.
@@ -13,11 +16,34 @@ package enemy
  * {{{
  *
  * }}}
-
  * @author
  * @since 1.0.0
  * @version 1.0.0
  */
+import charactersp.Character
+class Enemy (
+  val name:String,
+  val livePointsMax: Int,
+  val defending: Int,
+  val attack:Int,
+  val weight:Int,
+  var livePoints: Int) extends GameUnit {
+  def isAlive: Boolean = livePoints>0
+  def attack(defender:GameUnit): Unit = {
+   defender  match {
+     case defender:Character =>
+       val damage = (attack - defender.defending) max 0
+       defender.receiveDamage(damage)
+     case _ =>
+       throw new IllegalArgumentException("Defender can't be a Enemy")
+   }
+ }
+  def receiveDamage(damage: Int): Unit = {
+    livePoints = (livePoints - damage) max 0 // Los puntos de vida no pueden ser negativos
+    if (!isAlive) println(s"$name has been defeated!")
+  }
 
-class Enemy(val name: String, val livePoints: Int,
-            val defensing: Int, val attack: Int, val weight: Int)
+
+
+
+}

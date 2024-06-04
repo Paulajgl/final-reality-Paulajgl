@@ -1,5 +1,7 @@
 package charactersp
 
+import spell.{AbstractSpellBlack, AbstractSpellWhite}
+
 /**
  * A abstract class representing a magical character in a game or simulation.
  *
@@ -9,6 +11,6 @@ package charactersp
  * @param weight      The weight of the character, which may affect various aspects of gameplay.
  * @param manaPoints  The current number of mana points of the character, used for casting spells or performing magical actions.
  */
-trait  MagicalCharacter extends Character {
-  val manaPoints: Int
+trait  MagicalCharacter extends Character with GameUnit {
+
 }

@@ -1,39 +1,53 @@
 package weapontest
 
-import charactersp.{BlackMage, Paladin, Warrior, WhiteMage}
-import weaponry.{Bow, Staff}
+import charactersp.{Ninja, Paladin, Warrior}
+import munit.FunSuite
+import weaponry.{Axe, Bow}
 
-class BowTest extends munit.FunSuite {
-  test ("Bow is a Weapon"){
+class BowTest extends FunSuite{
+  test("Bow should be equipped by a character") {
     val bow = new Bow()
-    val warrior = new Warrior
-    bow.setOwner(warrior)
-    assertEquals("Bow", bow.name)
-    assertEquals(40, bow.attackPoints)
-    assertEquals(10, bow.weight)
-    assertEquals(bow.owner,Some(warrior))
+    val character = new Ninja()
+    bow.equip(character)
+    assert(bow.isEquipped)
 
   }
 
-  test("setOwner does not assign the owner when the owner is not allowed") {
+  test("Bow should not be equipped if already equipped by another character") {
     val bow = new Bow()
-    val blackMage = new BlackMage()
-    assertEquals(bow.owner, None)
+    val character1 = new Ninja()
+    val character2 = new Warrior()
 
+    bow.equip(character1)
+    intercept[UnsupportedOperationException] {
+      bow.equip(character2)
+    }
   }
-  test("setOwner returns false if the weapon is already owned by another character") {
+
+  test("Bow should be unequipped by a character") {
     val bow = new Bow()
-    val warrior = new Warrior()
-    val whiteMage = new WhiteMage()
-    bow.setOwner(warrior)
-    val result = bow.setOwner(whiteMage)
-    assertEquals(result, false)
-    assertEquals(bow.owner, Some(warrior))
+    val character = new Warrior()
+
+    bow.equip(character)
+    bow.unequip(character)
+    assert(!bow.isEquipped)
   }
-  test ("setOwner return false If the character attempts to equip the weapon that is not allowed for him"){
+
+  test("Axe should not be unequipped if not equipped by the character") {
     val bow = new Bow()
-    val paladin = new Paladin()
-    val result = bow.setOwner(paladin)
-    assertEquals(result, false)
+    val character = new Paladin()
+
+    intercept[UnsupportedOperationException] {
+      bow.unequip(character)
+    }
   }
+  test("Equip and unequip Axe weapon") {
+    val character = new Warrior()
+    val bow = new Bow
+    // Test equipping the axe
+    bow.equip(character)
+    assert(bow.isEquipped, "The axe should be equipped.")
+    assert(bow.owner.contains(character), "The owner of the axe should be the character.")
+  }
+
 }

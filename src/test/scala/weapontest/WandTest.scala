@@ -1,39 +1,53 @@
 package weapontest
 
-import weaponry.{Bow, Wand}
-import charactersp.{BlackMage, Character, Ninja, Warrior}
-class WandTest extends munit.FunSuite {
-  test("Bow ia a Weapon") {
+import charactersp.{BlackMage, Ninja, Paladin, WhiteMage}
+import munit.FunSuite
+import weaponry.{Staff, Wand}
+
+class WandTest extends FunSuite{
+  test("wand should be equipped by a character") {
     val wand = new Wand()
-    val ninja = new Ninja()
-    wand.setOwner(ninja)
-    assertEquals("Wand", wand.name)
-    assertEquals(15, wand.attackPoints)
-    assertEquals(20, wand.weight)
-    assertEquals(wand.owner, Some(ninja))
-  }
-  test("setOwner does not assign the owner when the owner is not allowed") {
-    val wand = new Wand()
-    val ninja = new Ninja()
-    assertEquals(wand.owner, None)
+    val character = new Ninja()
+    wand.equip(character)
+    assert(wand.isEquipped)
 
   }
-  test("setOwner returns false if the weapon is already owned by another character") {
+
+  test("wand should not be equipped if already equipped by another character") {
     val wand = new Wand()
-    val blackMage = new BlackMage()
-    val ninja = new Ninja()
-    wand.setOwner(ninja)
-    val result = wand.setOwner(blackMage)
-    assertEquals(result, false)
-    assertEquals(wand.owner, Some(ninja))
+    val character1 = new Ninja()
+    val character2 = new BlackMage()
+
+    wand.equip(character1)
+    intercept[UnsupportedOperationException] {
+      wand.equip(character2)
+    }
   }
 
-  test ("setOwner return false If the character attempts to equip the weapon that is not allowed for him"){
+  test("wand should be unequipped by a character") {
     val wand = new Wand()
-    val warrior = new Warrior()
-    wand.setOwner(warrior)
-    val result = wand.setOwner(warrior)
-    assertEquals(result, false)
+    val character = new WhiteMage()
+
+    wand.equip(character)
+    wand.unequip(character)
+    assert(!wand.isEquipped)
+  }
+
+  test("wand should not be unequipped if not equipped by the character") {
+    val wand = new Wand()
+    val character = new Paladin()
+
+    intercept[UnsupportedOperationException] {
+      wand.unequip(character)
+    }
+  }
+  test("Equip and unequip Axe weapon") {
+    val character = new Ninja()
+    val wand = new Wand
+    // Test equipping the axe
+    wand.equip(character)
+    assert(wand.isEquipped, "The axe should be equipped.")
+    assert(wand.owner.contains(character), "The owner of the axe should be the character.")
   }
 
 }

@@ -1,34 +1,52 @@
 package weapontest
 
-import charactersp.{BlackMage, Paladin, Warrior, WhiteMage}
-import weaponry.{Axe, Bow}
+import charactersp.{Paladin, Warrior}
+import munit.FunSuite
+import weaponry.Axe
 
-class AxeTest extends  munit.FunSuite {
-  test ("Axe is a Weapon"){
+class AxeTest extends FunSuite{
+  test("Axe should be equipped by a character") {
     val axe = new Axe()
-    val paladin= new Paladin
-    axe.setOwner(paladin)
-    assertEquals("Axe", axe.name)
-    assertEquals(20, axe.attackPoints)
-    assertEquals(10, axe.weight)
-    assertEquals(axe.owner, Some(paladin))
-  }
-  test("setOwner does not assign the owner when the owner is not allowed") {
-    val axe = new Axe()
-    val paladin = new Paladin()
-    assertEquals(axe.owner, None)
-  }
-  test("setOwner returns false if the weapon is already owned by another character") {
-    val axe = new Axe()
-    val warrior = new Warrior()
-    val paladin = new Paladin()
-    axe.setOwner(paladin)
-    val result = axe.setOwner(warrior)
-    assertEquals(result, false)
-    assertEquals(axe.owner, Some(paladin))
+    val character = new Warrior()
+    axe.equip(character)
+    assert(axe.isEquipped)
+
   }
 
+  test("Axe should not be equipped if already equipped by another character") {
+    val axe = new Axe()
+    val character1 = new Warrior()
+    val character2 = new Paladin()
 
+    axe.equip(character1)
+    intercept[UnsupportedOperationException] {
+      axe.equip(character2)
+    }
+  }
 
+  test("Axe should be unequipped by a character") {
+    val axe = new Axe()
+    val character = new Warrior()
 
+    axe.equip(character)
+    axe.unequip(character)
+    assert(!axe.isEquipped)
+  }
+
+  test("Axe should not be unequipped if not equipped by the character") {
+    val axe = new Axe()
+    val character = new Warrior()
+
+    intercept[UnsupportedOperationException] {
+      axe.unequip(character)
+    }
+  }
+  test("Equip and unequip Axe weapon") {
+    val character = new Warrior()
+    val axe = new Axe
+    // Test equipping the axe
+    axe.equip(character)
+    assert(axe.isEquipped, "The axe should be equipped.")
+    assert(axe.owner.contains(character), "The owner of the axe should be the character.")
+  }
 }
