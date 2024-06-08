@@ -44,7 +44,6 @@ class Ninja(
    */
   override def equipBow(bow: Bow): Unit = {
     this.weapon = Some(bow)
-    println(s"$name equips ${bow.name}")
   }
 
   /**
@@ -53,7 +52,6 @@ class Ninja(
    */
   override def unequipBow(bow: Bow): Unit = {
     this.weapon = None
-    println(s"$name unequips ${bow.name}")
   }
 
   /**
@@ -70,7 +68,6 @@ class Ninja(
    */
   override def equipSword(sword: Sword): Unit = {
     this.weapon = Some(sword)
-    println(s"$name equips ${sword.name}")
   }
 
   /**
@@ -79,7 +76,6 @@ class Ninja(
    */
   override def unequipSword(sword: Sword): Unit = {
     this.weapon = None
-    println(s"$name unequips ${sword.name}")
   }
 
   /**
@@ -88,7 +84,7 @@ class Ninja(
    */
   override def equipWand(wand: Wand): Unit = {
     this.weapon = Some(wand)
-    println(s"$name equips ${wand.name}")
+
   }
 
   /**
@@ -97,6 +93,5 @@ class Ninja(
    */
   override def unequipWand(wand: Wand): Unit = {
     this.weapon = None
-    println(s"$name unequips ${wand.name}")
   }
 }

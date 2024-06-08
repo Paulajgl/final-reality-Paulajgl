@@ -75,7 +75,6 @@ class BlackMage(
    */
   override def equipSword(sword: Sword): Unit = {
     this.weapon = Some(sword)
-    println(s"$name equips ${sword.name}")
   }
 
   /**
@@ -84,7 +83,6 @@ class BlackMage(
    */
   override def unequipSword(sword: Sword): Unit = {
     this.weapon = None
-    println(s"$name unequips ${sword.name}")
   }
 
   /**
@@ -93,7 +91,6 @@ class BlackMage(
    */
   override def equipWand(wand: Wand): Unit = {
     this.weapon = Some(wand)
-    println(s"$name equips ${wand.name}")
   }
 
   /**
@@ -102,6 +99,5 @@ class BlackMage(
    */
   override def unequipWand(wand: Wand): Unit = {
     this.weapon = None
-    println(s"$name unequips ${wand.name}")
   }
 }

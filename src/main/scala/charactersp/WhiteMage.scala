@@ -49,7 +49,6 @@ class WhiteMage(
    */
   override def equipBow(bow: Bow): Unit = {
     this.weapon = Some(bow)
-    println(s"$name equips ${bow.name}")
   }
 
   /**
@@ -58,7 +57,6 @@ class WhiteMage(
    */
   override def unequipBow(bow: Bow): Unit = {
     this.weapon = None
-    println(s"$name unequips ${bow.name}")
   }
 
   /**
@@ -67,7 +65,6 @@ class WhiteMage(
    */
   override def equipStaff(staff: Staff): Unit = {
     this.weapon = Some(staff)
-    println(s"$name equips ${staff.name}")
   }
 
   /**
@@ -76,7 +73,6 @@ class WhiteMage(
    */
   override def unequipStaff(staff: Staff): Unit = {
     this.weapon = None
-    println(s"$name unequips ${staff.name}")
   }
 
   /**
@@ -93,7 +89,6 @@ class WhiteMage(
    */
   override def equipWand(wand: Wand): Unit = {
     this.weapon = Some(wand)
-    println(s"$name equips ${wand.name}")
   }
 
   /**
@@ -102,6 +97,5 @@ class WhiteMage(
    */
   override def unequipWand(wand: Wand): Unit = {
     this.weapon = None
-    println(s"$name unequips ${wand.name}")
   }
 }

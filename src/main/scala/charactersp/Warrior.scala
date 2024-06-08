@@ -36,7 +36,6 @@ class Warrior(
    */
   override def equipAxe(axe: Axe): Unit = {
     this.weapon = Some(axe)
-    println(s"$name equips ${axe.name}")
   }
 
   /**
@@ -45,7 +44,6 @@ class Warrior(
    */
   override def unequipAxe(axe: Axe): Unit = {
     this.weapon = None
-    println(s"$name unequips ${axe.name}")
   }
 
   /**
@@ -54,7 +52,6 @@ class Warrior(
    */
   override def equipBow(bow: Bow): Unit = {
     this.weapon = Some(bow)
-    println(s"$name equips ${bow.name}")
   }
 
   /**
@@ -63,7 +60,6 @@ class Warrior(
    */
   override def unequipBow(bow: Bow): Unit = {
     this.weapon = None
-    println(s"$name unequips ${bow.name}")
   }
 
   /**
@@ -80,7 +76,6 @@ class Warrior(
    */
   override def equipSword(sword: Sword): Unit = {
     this.weapon = Some(sword)
-    println(s"$name equips ${sword.name}")
   }
 
   /**
@@ -89,7 +84,6 @@ class Warrior(
    */
   override def unequipSword(sword: Sword): Unit = {
     this.weapon = None
-    println(s"$name unequips ${sword.name}")
   }
 
   /**

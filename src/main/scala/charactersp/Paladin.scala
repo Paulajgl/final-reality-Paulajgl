@@ -36,7 +36,6 @@ class Paladin(
    */
   override def equipAxe(axe: Axe): Unit = {
     this.weapon = Some(axe)
-    println(s"$name equips ${axe.name}")
   }
 
   /**
@@ -45,7 +44,6 @@ class Paladin(
    */
   override def unequipAxe(axe: Axe): Unit = {
     this.weapon = None
-    println(s"$name unequips ${axe.name}")
   }
 
   /**
@@ -70,7 +68,6 @@ class Paladin(
    */
   override def equipSword(sword: Sword): Unit = {
     this.weapon = Some(sword)
-    println(s"$name equips ${sword.name}")
   }
 
   /**
@@ -79,7 +76,6 @@ class Paladin(
    */
   override def unequipSword(sword: Sword): Unit = {
     this.weapon = None
-    println(s"$name unequips ${sword.name}")
   }
 
   /**
