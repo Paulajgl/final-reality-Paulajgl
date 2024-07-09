@@ -4,7 +4,7 @@ import charactersp.{BlackMage, Paladin, Warrior, WhiteMage}
 import enemy.Enemy
 import exceptions.{InsufficientManaException, InvalidTargetException}
 import munit.FunSuite
-import spell.{Fire, Paralysis, Thunder}
+import spell.{Curing, Fire, Paralysis, Thunder}
 import weaponry.Wand
 
 class ThunderTest extends FunSuite{
@@ -81,5 +81,9 @@ class ThunderTest extends FunSuite{
     }
     assertEquals(exception.getMessage(),"Caster must have a weapon equipped to cast a spell")
   }
-
+  test ("Thunder getName"){
+    val thunderSpell = new Thunder
+    val result= thunderSpell.getName
+    assertEquals(result, "Thunder")
+  }
 }

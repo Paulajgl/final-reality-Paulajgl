@@ -40,6 +40,7 @@ abstract class AbstractUnitWeapon extends UnitWeapon {
    */
   def equip(character: charactersp.Character): Unit
 
+
   /**
    * Unequips this weapon from the specified character.
    *
@@ -61,4 +62,9 @@ abstract class AbstractUnitWeapon extends UnitWeapon {
    * @param character The character from which the weapon is being unequipped.
    */
   protected def specificUnequip(character: charactersp.Character): Unit
+
+  /**
+   * Indicates the name of the weapon.
+   */
+  def getName: String= name
 }

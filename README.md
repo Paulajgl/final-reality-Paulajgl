@@ -31,3 +31,21 @@ to store the maximum values for the respective characters). All spells were give
 and for those characters that do not use percentage-based spells, the percentage was set to zero.
 
 ![Diagrama de estado](src/main/docs/diagrama-estado.png)
+
+For Tarea 3, the game controller, game model, and game view were implemented using the State pattern. The logic behind 
+this is as follows: when the game starts, a character must be chosen along with the weapon to equip.
+Once this is done, the game transitions to the ActionState, where the player can choose to add an ally, 
+cast a spell, or attack. They can also choose a weapon (this command is available in case the initial weapon
+selection is incorrect, i.e., the chosen weapon is already equipped or the character cannot use the 
+selected weapon). When adding a character, it will be added to the party; thus, no more than three 
+characters can be added, and the game will only take the first three chosen characters. For attacking, 
+a turn-based system is used where the character with the highest action bar attacks first. In the case of 
+enemies, a character that is in the party and still alive is chosen randomly. Spells can only be equipped 
+by magical characters.
+Additionally, effects were implemented for each spell, where a duration was assigned, and isActive was defined to
+check if the enemy has the turn or loses it. Once the spell's effect duration ends, isActive is set to false
+again.
+
+We can see in the following diagram a more general explanation of what was intended to be implemented compared to the 
+previous description and the first diagrama .
+![New Diagrama](src/main/docs/diagrama-estado2.png)

@@ -5,5 +5,5 @@ import charactersp.Character
  * Extends the Weapon trait.
  */
 trait MagicalWeapon extends Weapon {
-
+  val magicAttackPoints: Int
 }

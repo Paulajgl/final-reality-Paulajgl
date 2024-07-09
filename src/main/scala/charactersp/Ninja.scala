@@ -30,6 +30,9 @@ class Ninja(
              var livePoints: Int = 80
            ) extends AbstractCharacter {
 
+
+
+
   /**
    * Throws an UnsupportedOperationException, as Ninja cannot equip an axe.
    * @param axe The axe to equip.

@@ -30,7 +30,7 @@ class Curing extends AbstractSpellWhite(cost = 15, percent = 0.3) {
    * @param target The target of the spell.
    * @return The magical character after casting the spell.
    * @throws InsufficientManaException If the caster doesn't have enough mana points to cast the spell.
-   * @throws InvalidTargetException If the target of the spell is not alive.
+   * @throws InvalidTargetException    If the target of the spell is not alive.
    */
   override def cast(caster: MagicalCharacter, target: GameUnit): MagicalCharacter = {
     if (isTargetAlive(target)) {
@@ -44,4 +44,13 @@ class Curing extends AbstractSpellWhite(cost = 15, percent = 0.3) {
       throw new InvalidTargetException("Target must be alive to cast a spell")
     }
   }
+  /**
+   * Returns the name of the magic item.
+   *
+   * This method returns the name of the magic item as "Curing". The name
+   * typically represents the main function or characteristic of the item.
+   *
+   * @return "Curing", the name of this magic item.
+   */
+  override def getName: String = "Curing"
 }

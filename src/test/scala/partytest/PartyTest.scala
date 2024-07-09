@@ -3,6 +3,8 @@ package partytest
 import charactersp.{BlackMage, Character, Ninja, Paladin, Warrior}
 import exceptions.IllegalAmountException
 import party.Party
+
+import scala.collection.mutable.ArrayBuffer
 class PartyTest extends munit.FunSuite {
   test("adding and removing members from party") {
     val party = new Party("PWB")
@@ -63,7 +65,18 @@ class PartyTest extends munit.FunSuite {
     val result2 =party.contains(warrior)
     assertEquals(result2,false)
 
-
+  }
+  test ("get players"){
+    val party = new Party("PWB")
+    val paladin = new Paladin()
+    val warrior = new Warrior()
+    val blackMage= new BlackMage()
+    party.addNewMember(paladin)
+    party.addNewMember(warrior)
+    party.addNewMember(blackMage)
+    val result= party.getPlayers
+    val result2= ArrayBuffer(paladin,warrior,blackMage)
+    assertEquals(result,result2)
   }
 }
 

@@ -7,6 +7,7 @@ import charactersp.Character
  */
 trait Weapon extends AbstractUnitWeapon {
 
+
  }
 
 

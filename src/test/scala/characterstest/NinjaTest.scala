@@ -15,6 +15,7 @@ class NinjaTest extends munit.FunSuite {
     val ninja = new Ninja()
     val sword = new Sword()
     sword.equip(ninja)
+    assertEquals(ninja.getWeapon,sword)
   }
   test("Ninja should unequip a Sword") {
     val ninja = new Ninja()

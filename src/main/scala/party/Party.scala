@@ -11,7 +11,7 @@ import scala.collection.mutable.ArrayBuffer
  * @constructor Create a new Party instance with a given name.
  * @param name The name of the party.
  */
-class Party(val name: String) {
+class Party(val name: String) extends IParty {
 
   val players: ArrayBuffer[charactersp.Character] = new ArrayBuffer[charactersp.Character]()
 
@@ -33,10 +33,11 @@ class Party(val name: String) {
    *
    * @param member The character to remove from the party.
    */
-  def removeMember(member: charactersp.Character): Unit = {
+  override def removeMember(member: charactersp.Character): Unit = {
     val index: Int = players.indexOf(member)
     if (index != -1)
       players.remove(index)
+
   }
 
   /**
@@ -58,4 +59,5 @@ class Party(val name: String) {
     players.forall(_.livePoints == 0)
   }
 
+  def getPlayers: ArrayBuffer[charactersp.Character] = players
 }

@@ -4,7 +4,7 @@ import charactersp.{GameUnit, MagicalCharacter, Ninja, Paladin, WhiteMage}
 import enemy.Enemy
 import exceptions.{InsufficientManaException, InvalidTargetException}
 import munit.FunSuite
-import spell.Curing
+import spell.{Curing, Fire}
 
 class CuringTest extends FunSuite {
   test("Curing spell should decrease the mana points of the caster") {
@@ -42,6 +42,27 @@ class CuringTest extends FunSuite {
        curingSpell.cast(whiteMage, target)
      }
    }
+  test ("Curing getName"){
+    val curingSpell = new Curing
+    val result= curingSpell.getName
+    assertEquals(result, "Curing")
+  }
+  test ("can use the spell"){
+    val curingSpell = new Curing
+    assertEquals(curingSpell.canUseByBlackMagician(),false)
+    assertEquals(curingSpell.canUseByWhiteMagician(),true)
+
+  }
+  test("Curing spell should throw an InvalidTarget if target is not live") {
+    val blackMage = new WhiteMage()
+    val target = new Enemy("P", 60, 20, 10, 0, 0)
+    val Spell = new Curing
+    intercept[InvalidTargetException] {
+      Spell.cast(blackMage, target)
+    }
+  }
+
+
 
 
 

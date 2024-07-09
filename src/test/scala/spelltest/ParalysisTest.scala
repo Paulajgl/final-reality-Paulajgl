@@ -12,8 +12,8 @@ class ParalysisTest extends FunSuite{
     val whiteMage = new WhiteMage()
     val target = new Enemy ("Enemy", 60, 30, 10, 60, 60)
     val paralysisSpell =new Paralysis
-    val bow = new Bow()
-    bow.equip(whiteMage)
+    val staff = new Staff()
+    staff.equip(whiteMage)
     paralysisSpell.cast(whiteMage, target)
     assertEquals(whiteMage.manaPoints, 5) // 20 - 25 = 5
   }
@@ -60,5 +60,23 @@ class ParalysisTest extends FunSuite{
       paralysisSpell.cast(whiteMage, target)
     }
     assertEquals(exception.getMessage(),"Caster must have a weapon equipped to cast a spell")
+  }
+  test ("Paralysis getName"){
+    val paralysisSpell = new Paralysis
+    val result= paralysisSpell.getName
+    assertEquals(result, "Paralysis")
+  }
+  test ("can use the spell") {
+    val paralysisSpell = new Paralysis
+    assertEquals(paralysisSpell.canUseByBlackMagician(), false)
+    assertEquals(paralysisSpell.canUseByWhiteMagician(), true)
+  }
+  test("Paralysis spell should throw an InvalidTarget if target is not live") {
+    val blackMage = new WhiteMage()
+    val target = new Enemy("P", 60, 20, 10, 0, 0)
+    val Spell = new Paralysis
+    intercept[InvalidTargetException] {
+      Spell.cast(blackMage, target)
+    }
   }
   }

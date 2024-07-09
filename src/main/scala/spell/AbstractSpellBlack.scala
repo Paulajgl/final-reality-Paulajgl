@@ -9,12 +9,12 @@ import exceptions.{IllegalAmountException, InsufficientManaException, InvalidTar
  *
  * @constructor Creates a new instance of AbstractSpellBlack with the specified cost and paralysis percent.
  * @param cost The cost of casting the spell in terms of mana points.
- * @param paralysisPercent The percentage chance of causing paralysis to the target.
+ * @param effectPercent The percentage chance of causing effect to the target.
  */
 
 abstract class AbstractSpellBlack (
   val cost: Int,
-  val paralysisPercent: Double ) extends  SpellBlack {
+  val effectPercent: Double ) extends  SpellBlack {
 
   /**
    * Checks if the target game unit is alive.
@@ -37,8 +37,8 @@ abstract class AbstractSpellBlack (
    * @param target The game unit being targeted by the spell.
    * @return The magical character after casting the spell.
    * @throws UnsupportedOperationException if the caster does not have a weapon equipped.
-   * @throws InsufficientManaException if the caster does not have enough mana points to cast the spell.
-   * @throws InvalidTargetException if the target is not alive.
+   * @throws InsufficientManaException     if the caster does not have enough mana points to cast the spell.
+   * @throws InvalidTargetException        if the target is not alive.
    */
   override def cast(caster: MagicalCharacter, target: GameUnit): MagicalCharacter = {
     if (isTargetAlive(target)) {
@@ -55,5 +55,26 @@ abstract class AbstractSpellBlack (
       throw new InvalidTargetException("Target must be alive to cast a spell")
     }
   }
+  /**
+   * Indicates whether this magic item can be used by a black magician.
+   *
+   * This method returns true, meaning that black magicians are allowed
+   * to use this item. Black magicians typically practice dark or forbidden
+   * magic, so this item is suited for their use.
+   *
+   * @return true, because this item can be used by black magicians.
+   */
+  override def canUseByBlackMagician(): Boolean = true
+
+  /**
+   * Indicates whether this magic item can be used by a white magician.
+   *
+   * This method returns false, meaning that white magicians cannot use
+   * this item. White magicians typically practice light or healing magic,
+   * and this item is not suitable for their use.
+   *
+   * @return false, because this item cannot be used by white magicians.
+   */
+  override def canUseByWhiteMagician(): Boolean = false
 
 }

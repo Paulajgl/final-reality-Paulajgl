@@ -26,8 +26,8 @@ abstract class AbstractSpellWhite(val cost: Int, val percent: Double) extends Sp
    * @param target The target of the spell.
    * @return The magical character after casting the spell.
    * @throws UnsupportedOperationException If the caster doesn't have a weapon equipped.
-   * @throws InsufficientManaException      If the caster doesn't have enough mana points to cast the spell.
-   * @throws InvalidTargetException         If the spell's target is not alive.
+   * @throws InsufficientManaException     If the caster doesn't have enough mana points to cast the spell.
+   * @throws InvalidTargetException        If the spell's target is not alive.
    */
   override def cast(caster: MagicalCharacter, target: GameUnit): MagicalCharacter = {
     if (isTargetAlive(target)) {
@@ -44,8 +44,27 @@ abstract class AbstractSpellWhite(val cost: Int, val percent: Double) extends Sp
       throw new InvalidTargetException("Target must be alive to cast a spell")
     }
   }
+  /**
+   * Indicates whether this magic item can be used by a black magician.
+   *
+   * This method returns true, meaning that black magicians are allowed
+   * to use this item. Black magicians typically practice dark or forbidden
+   * magic, so this item is suited for their use.
+   *
+   * @return true, because this item can be used by black magicians.
+   */
+  override def canUseByBlackMagician(): Boolean = false
 
-
+  /**
+   * Indicates whether this magic item can be used by a white magician.
+   *
+   * This method returns false, meaning that white magicians cannot use
+   * this item. White magicians typically practice light or healing magic,
+   * and this item is not suitable for their use.
+   *
+   * @return false, because this item cannot be used by white magicians.
+   */
+  override def canUseByWhiteMagician(): Boolean = true
 
 
 

@@ -22,4 +22,13 @@ class Thunder  extends AbstractSpellBlack (20,0.3){
     case _: Character => throw new InvalidTargetException("Target is a character.")
     case target: Enemy=> target.livePoints > 0
   }
+  /**
+   * Returns the name of the magic item.
+   *
+   * This method returns the name of the magic item as "Curing". The name
+   * typically represents the main function or characteristic of the item.
+   *
+   * @return "Poison", the name of this magic item.
+   */
+  override def getName: String = "Thunder"
 }

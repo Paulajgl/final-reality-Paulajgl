@@ -4,16 +4,16 @@ import charactersp.{BlackMage, Paladin, Warrior, WhiteMage}
 import enemy.Enemy
 import exceptions.{InsufficientManaException, InvalidTargetException}
 import munit.FunSuite
-import spell.{Fire, Paralysis, Poison}
-import weaponry.{Bow, Wand}
+import spell.{Curing, Fire, Paralysis, Poison}
+import weaponry.{Bow, Staff, Wand}
 
 class PoisonTest extends FunSuite{
   test("Poison spell should decrease the mana points of the caster") {
     val whiteMage = new WhiteMage()
     val target = new Enemy ("Enemy", 60, 20, 10, 60, 60)
     val poisonSpell =new Poison
-    val bow = new Bow()
-    bow.equip(whiteMage)
+    val staff = new Staff()
+    staff.equip(whiteMage)
     poisonSpell.cast(whiteMage, target)
     assertEquals(whiteMage.manaPoints, 0)
   }
@@ -22,8 +22,8 @@ class PoisonTest extends FunSuite{
     val whiteMage = new WhiteMage()
     val target = new Enemy ("Enemy", 60, 20, 10, 60, 60)
     val poisonSpell = new Poison
-    val bow = new Bow()
-    bow.equip(whiteMage)
+    val staff= new Staff()
+    staff.equip(whiteMage)
     poisonSpell.cast(whiteMage, target)
     intercept[InsufficientManaException] {
       poisonSpell.cast(whiteMage, target)
@@ -55,9 +55,9 @@ class PoisonTest extends FunSuite{
   test ("Poison spell should throw an UnsupportedOperationException if caster don't have a weapon") {
     val whiteMage = new WhiteMage()
     val target = new Enemy("Enemy", 30, 40, 30, 20, 30)
-    val fireSpell = new Fire
+    val poisonSpell = new Poison
     val exception = intercept[UnsupportedOperationException] {
-      fireSpell.cast(whiteMage, target)
+      poisonSpell.cast(whiteMage, target)
     }
     assertEquals(exception.getMessage(), "Caster must have a weapon equipped to cast a spell")
   }
@@ -73,5 +73,10 @@ class PoisonTest extends FunSuite{
     }
     assertEquals(exception.getMessage(),"Target must be alive to cast a spell")
 
+  }
+  test ("Poison getName"){
+    val poisonSpell = new Poison
+    val result= poisonSpell.getName
+    assertEquals(result, "Poison")
   }
   }

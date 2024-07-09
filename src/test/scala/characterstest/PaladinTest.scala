@@ -13,6 +13,7 @@ class PaladinTest extends munit.FunSuite {
     val paladin = new Paladin()
     val sword = new Sword()
     sword.equip(paladin)
+    assertEquals(paladin.getWeapon,sword)
   }
   test("Paladin should unequip a Sword") {
     val paladin = new Paladin()

@@ -1,6 +1,10 @@
 package charactersp
 
+import enemy.{Enemy, UEnemy}
+import gamecontroller.observer.ObserverAttack
 import weaponry.{Axe, Bow, Staff, Sword, UnitWeapon, Wand, Weapon}
+
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * AbstractGameUnit is an abstract class that represents a basic game unit in the game.
@@ -39,6 +43,7 @@ abstract class AbstractGameUnit extends GameUnit {
    */
   var weapon: Option[UnitWeapon] = None
 
+  private var attackObs = ArrayBuffer.empty[ObserverAttack]
   /**
    * Checks if the game unit is alive.
    * @return true if the game unit has more than 0 live points, false otherwise.
@@ -58,7 +63,7 @@ abstract class AbstractGameUnit extends GameUnit {
    * This method should be implemented by subclasses to define how damage is processed.
    * @param damage The amount of damage to be received.
    */
-  def receiveDamage(damage: Int): Unit
+  def receiveDamage(defender: GameUnit,damage: Int): Int
 
   /**
    * Attempts to equip an Axe to the game unit.
@@ -149,4 +154,23 @@ abstract class AbstractGameUnit extends GameUnit {
   def unequipWand(wand: Wand): Unit = {
     throw new UnsupportedOperationException(s"$name cannot unequip a wand.")
   }
+  /**
+   * Registers an observer for attack events.
+   *
+   * This method adds the specified observer to the list of attack observers. These observers
+   * will be notified of attack events.
+   *
+   * @param obs The observer to register.
+   */
+  def registerAttackObserver(obs: ObserverAttack): Unit = {
+    attackObs += obs
+  }
+
+  /**
+   * Checks if the character is currently active.
+   *
+   * @return Always returns false. Subclasses may override this behavior to provide actual status.
+   */
+  def isActive(): Boolean = false
+
 }

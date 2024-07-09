@@ -8,10 +8,9 @@ import scala.collection.mutable.ListBuffer
 /**
  * Manages the turn scheduling and action bars for characters in a game.
  */
-class TurnScheduler {
-
+class TurnScheduler extends ITurnScheduler {
   // Variables to store action bars, character lists, and action bars in battle
-  private var _actionbar: ActionBar = _
+
   private val _characterList: mutable.Map[charactersp.Character, ActionBar] = mutable.Map[charactersp.Character, ActionBar]()
   private val _characterListInBattle: mutable.Map[charactersp.Character, ActionBar] = mutable.Map[charactersp.Character, ActionBar]()
   private val _actionBarsInBattle: mutable.Set[ActionBar] = mutable.Set[ActionBar]()
@@ -80,14 +79,7 @@ class TurnScheduler {
     maxValues.toList
   }
 
-  /**
-   * Method to add an action bar to the action bars in battle.
-   *
-   * @param actionBar The action bar to add.
-   */
-  def addActionBarToBattle(actionBar: ActionBar): Unit = {
-    _actionBarsInBattle += actionBar
-  }
+
 
   /**
    * Method to reset action bars to zero for a given character list.

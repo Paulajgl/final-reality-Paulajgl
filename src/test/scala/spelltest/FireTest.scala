@@ -65,6 +65,26 @@ class FireTest extends FunSuite{
     assertEquals(exception.getMessage(),"Caster must have a weapon equipped to cast a spell")
 
   }
+  test ("Fire getName"){
+    val fireSpell = new Fire
+    val result= fireSpell.getName
+    assertEquals(result, "Fire")
+  }
+  test ("can use the spell"){
+    val fireSpell = new Fire
+    assertEquals(fireSpell.canUseByBlackMagician(),true)
+    assertEquals(fireSpell.canUseByWhiteMagician(),false)
+
+  }
+  test("Fire spell should throw an InvalidTarget if target is not live") {
+    val blackMage = new BlackMage()
+    val target = new Enemy("P",60,20,10,0,0)
+    val fireSpell = new Fire
+    intercept[InvalidTargetException] {
+      fireSpell.cast(blackMage, target)
+    }
+
+  }
 
 
 

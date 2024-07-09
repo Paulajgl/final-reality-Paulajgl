@@ -1,6 +1,7 @@
 package characterstest
 
-import charactersp.{ WhiteMage}
+import charactersp.WhiteMage
+import spell.Poison
 import weaponry.{Axe, Bow, Staff, Sword, Wand}
 
 
@@ -9,7 +10,7 @@ class WhiteMageTest extends munit.FunSuite {
     val whiteMage = new WhiteMage()
     assertEquals("WhiteMage", whiteMage.name)
     assertEquals(90, whiteMage.livePoints)
-    assertEquals(50, whiteMage.defending)
+    assertEquals(10, whiteMage.defending)
     assertEquals(40, whiteMage.weight)
     assertEquals(30, whiteMage.manaPoints)
   }
@@ -61,5 +62,12 @@ class WhiteMageTest extends munit.FunSuite {
     val staff = new Staff()
     staff.equip(whiteMage)
     staff.unequip(whiteMage)
+  }
+  test("Can use a spell?"){
+    val whiteMage = new WhiteMage()
+    val staff = new Staff()
+    val spell= new Poison
+    staff.equip(whiteMage)
+    assertEquals(whiteMage.canUseSpell(spell),true)
   }
 }

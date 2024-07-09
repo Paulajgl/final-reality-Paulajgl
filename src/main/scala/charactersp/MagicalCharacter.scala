@@ -1,6 +1,6 @@
 package charactersp
 
-import spell.{AbstractSpellBlack, AbstractSpellWhite}
+import spell.{AbstractSpell, AbstractSpellBlack, AbstractSpellWhite, Spell}
 
 /**
  * A abstract class representing a magical character in a game or simulation.
@@ -12,5 +12,7 @@ import spell.{AbstractSpellBlack, AbstractSpellWhite}
  * @param manaPoints  The current number of mana points of the character, used for casting spells or performing magical actions.
  */
 trait  MagicalCharacter extends Character with GameUnit {
-
+  var manaPoints: Int
+  val manaPointsMax: Int
+  def canUseSpell(spell:Spell): Boolean
 }

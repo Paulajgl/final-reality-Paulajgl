@@ -16,6 +16,7 @@ class WarriorTest extends munit.FunSuite {
     val warrior = new Warrior()
     val sword = new Sword()
     sword.equip(warrior)
+    assertEquals(warrior.getWeapon,sword)
   }
   test("Warrior should unequip a Sword") {
     val warrior = new Warrior()

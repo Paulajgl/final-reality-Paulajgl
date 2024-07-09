@@ -1,6 +1,7 @@
 package enemy
 
 import charactersp.GameUnit
+import gamecontroller.observer.ObserverAttack
 
 /** A class representing a Axe
  *
@@ -27,23 +28,22 @@ class Enemy (
   val defending: Int,
   val attack:Int,
   val weight:Int,
-  var livePoints: Int) extends GameUnit {
+  var livePoints: Int) extends AbstractEnemy  {
   def isAlive: Boolean = livePoints>0
-  def attack(defender:GameUnit): Unit = {
+  override def attack(defender:GameUnit): Unit = {
    defender  match {
      case defender:Character =>
        val damage = (attack - defender.defending) max 0
-       defender.receiveDamage(damage)
+       defender.livePoints=defender.receiveDamage(defender,damage)
      case _ =>
        throw new IllegalArgumentException("Defender can't be a Enemy")
    }
  }
-  def receiveDamage(damage: Int): Unit = {
-    livePoints = (livePoints - damage) max 0 // Los puntos de vida no pueden ser negativos
-    if (!isAlive) println(s"$name has been defeated!")
+  override def receiveDamage(defender: GameUnit,damage: Int): Int = {
+    var newlivePoints=0
+    newlivePoints= (defender.livePoints - damage) max 0
+    newlivePoints// Live points cannot be negative
   }
-
-
 
 
 }

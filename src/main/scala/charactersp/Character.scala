@@ -1,9 +1,11 @@
 package charactersp
 
 import party.Party
-import weaponry.{Axe, Bow, Staff, Sword, Wand, Weapon}
+import spell.Spell
+import weaponry.{Axe, Bow, Staff, Sword, UnitWeapon, Wand, Weapon}
 
 import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * A trait representing a character in a game or simulation.
@@ -14,5 +16,7 @@ import scala.collection.mutable
  * @param weight      The weight of the character, which may affect various aspects of gameplay.
  */
 trait  Character extends  AbstractGameUnit {
-
+  def canUseSpell(spell:Spell): Boolean
+  def spells: ArrayBuffer[Spell]
+  def getWeapon: UnitWeapon
 }

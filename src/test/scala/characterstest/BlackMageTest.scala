@@ -1,6 +1,7 @@
 package characterstest
 
 import charactersp.BlackMage
+import spell.Fire
 import weaponry.{Axe, Bow, Staff, Sword, Wand}
 
 class BlackMageTest extends munit.FunSuite {
@@ -8,7 +9,7 @@ class BlackMageTest extends munit.FunSuite {
     val blackMage = new BlackMage()
     assertEquals("BlackMage", blackMage.name)
     assertEquals(80, blackMage.livePoints)
-    assertEquals(40, blackMage.defending)
+    assertEquals(20, blackMage.defending)
     assertEquals(50, blackMage.weight)
     assertEquals(30, blackMage.manaPoints)
   }
@@ -17,6 +18,7 @@ class BlackMageTest extends munit.FunSuite {
     val blackMage = new BlackMage()
     val staff = new Staff()
     staff.equip(blackMage)
+    assertEquals(blackMage.getWeapon,staff)
   }
   test("BlackMage should unequip a staff") {
     val blackMage = new BlackMage()
@@ -60,6 +62,13 @@ class BlackMageTest extends munit.FunSuite {
     intercept[UnsupportedOperationException] {
       bow.equip(blackMage)
     }
+  }
+  test("Can use a spell?"){
+    val blackMage = new BlackMage()
+    val staff = new Staff()
+    val spell= new Fire
+    staff.equip(blackMage)
+    assertEquals(blackMage.canUseSpell(spell),true)
   }
 
 }

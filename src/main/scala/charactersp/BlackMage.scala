@@ -1,6 +1,6 @@
 package charactersp
 
-import spell.{AbstractSpellBlack, AbstractSpellWhite, Spell, SpellBlack, SpellWhite}
+import spell.{AbstractSpell, AbstractSpellBlack, AbstractSpellWhite, Spell, SpellBlack, SpellWhite}
 import weaponry.{AbstractWeapon, Axe, Bow, Staff, Sword, Wand, Weapon}
 
 /**
@@ -28,7 +28,7 @@ import weaponry.{AbstractWeapon, Axe, Bow, Staff, Sword, Wand, Weapon}
 class BlackMage(
                  val name: String = "BlackMage",
                  val livePointsMax: Int = 80,
-                 val defending: Int = 40,
+                 val defending: Int = 20,
                  val weight: Int = 50,
                  val manaPointsMax: Int = 30,
                  var manaPoints: Int = 30,
@@ -99,5 +99,8 @@ class BlackMage(
    */
   override def unequipWand(wand: Wand): Unit = {
     this.weapon = None
+  }
+  override def canUseSpell(spell:Spell): Boolean = {
+    spell.canUseByBlackMagician()
   }
 }
